@@ -8,6 +8,7 @@ edition = "2021"
 [dependencies]
 # Axum web framework
 axum = "0.7.9"
+axum-macros = "0.4.2"
 
 # Tokio
 tokio = { version = "1.32.0", features = ["full"] }
@@ -15,6 +16,13 @@ tokio = { version = "1.32.0", features = ["full"] }
 # SeaOrm
 sea-orm = { version = "1.1.2", features = ["sqlx-mysql", "runtime-actix-native-tls"] }
 
+# sqlx
+sqlx = { version = "0.8.2", features = ["runtime-tokio-native-tls"] }
+rust_decimal = "1.36.0"
+
 # serde
 serde = { version = "1.0.133", features = ["derive"] }
 serde_json = "1.0.133"
+
+dotenvy = "0.15.7"
+anyhow = "1.0.94"
