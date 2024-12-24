@@ -11,6 +11,7 @@ impl UserService {
         UserService { user_repository }
     }
 
+    /// Create a new user
     pub async fn create_user(&self, username: String, password: String) -> Result<u64, String> {
         // Validate input parameters
         if username.is_empty() || password.is_empty() {
@@ -29,5 +30,14 @@ impl UserService {
         };
         //Save the user record to the database
         self.user_repository.create_user(&user).await
+    }
+
+    /// User login
+    pub async fn user_login(&self, username: String, password: String) -> Result<i8, String>{
+        // sql注入校验
+        if username.contains("'") || password.contains("'") {
+            return Err("Invalid input".to_string());
+        }
+        Ok(0)
     }
 }
